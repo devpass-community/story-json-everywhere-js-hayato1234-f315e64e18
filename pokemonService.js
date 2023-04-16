@@ -1,19 +1,13 @@
 async function getPokemon(pokemonId) {
-    const apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
+  const apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
 
-    fetch(apiUrl)
-        .then(response => {
-            if(response.ok){
-                return response.json()
-            }
-            throw response;
-        })
-        .then(data => {
-            return data
-        })
-        .catch(error => {
-            console.error(error);
-        })
+  const response = fetch(apiUrl);
+
+  if (response.ok) {
+    return response.json();
+  } else {
+    console.error(response);
+  }
 }
 
 module.exports = getPokemon;
